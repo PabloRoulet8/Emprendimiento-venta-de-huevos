@@ -1,0 +1,13 @@
+// _mixins.scss - mixins reutilizables
+@mixin visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' { @media (max-width: 600px) { @content; } }
+  @else if $breakpoint == 'md' { @media (max-width: 900px) { @content; } }
+}

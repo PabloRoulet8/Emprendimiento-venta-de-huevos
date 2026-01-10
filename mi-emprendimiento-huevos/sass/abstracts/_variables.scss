@@ -1,0 +1,28 @@
+// COLORES
+$color-bg:       #FDFBF7; // Blanco cáscara
+$color-primary:  #FFB300; // Amarillo yema intenso
+$color-primary-dark: #e6a100; // Un poco más oscuro para hover
+$color-text:     #2D2D2D; // Gris oscuro
+$color-text-light:#666666; 
+$color-white:    #FFFFFF;
+$color-border:   #E0E0E0;
+$color-success:  #2ecc71; // Verde WhatsApp
+$color-danger:   #e74c3c; 
+
+// TIPOGRAFÍA
+$font-main:      'Nunito', sans-serif;
+
+// ESPACIADO
+$spacing-sm:     8px;
+$spacing-md:     16px;
+$spacing-lg:     32px;
+$spacing-xl:     64px;
+
+// SOMBRAS & BORDES
+$shadow-card:    0 4px 12px rgba(0,0,0,0.08);
+$shadow-float:   0 -4px 20px rgba(0,0,0,0.1);
+$radius-main:    12px;
+$radius-btn:     50px; // Botones redondos
+
+// TAMAÑOS
+$max-width: 1200px;

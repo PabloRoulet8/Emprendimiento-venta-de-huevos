@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huevos de Campo | Frescura en tu puerta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Huevos de Campo 🥚</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h2>Del campo a tu mesa, sin escalas.</h2>
+                <p>Reparto a pie en tu zona. Frescos, colorados y de confianza.</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container grid-container">
+                
+                <article class="product-card">
+                    <div class="product-card__image">
+                        <img src="assets/img/docena.jpg" alt="Docena de Huevos Colorados">
+                    </div>
+                    <div class="product-card__info">
+                        <h3>Docena Colorada</h3>
+                        
+                        <p class="price" data-product-id="docena">--</p>
+                        
+                        <div class="quantity-control">
+                            <button class="btn-circle btn-decrease" data-id="docena">-</button>
+                            <span class="quantity-display" id="qty-docena">0</span>
+                            <button class="btn-circle btn-increase" data-id="docena">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-card__image">
+                        <img src="assets/img/maple.jpg" alt="Maple de 30 Huevos">
+                        <span class="badge">Más vendido</span>
+                    </div>
+                    <div class="product-card__info">
+                        <h3>Maple (30 Unid.)</h3>
+                        
+                        <p class="price" data-product-id="maple">--</p>
+                        
+                        <div class="quantity-control">
+                            <button class="btn-circle btn-decrease" data-id="maple">-</button>
+                            <span class="quantity-display" id="qty-maple">0</span>
+                            <button class="btn-circle btn-increase" data-id="maple">+</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="checkout-section" class="checkout-section hidden">
+            <div class="container">
+                <h2>Finalizar Pedido</h2>
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="name">Tu Nombre</label>
+                        <input type="text" id="name" placeholder="Ej: Juan Perez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Dirección Exacta</label>
+                        <input type="text" id="address" placeholder="Ej: Av. Pellegrini 1500, 2A" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zone">Zona de Entrega</label>
+                        <select id="zone" required>
+                            <option value="" disabled selected>Seleccioná tu barrio...</option>
+                            <option value="centro">Zona Centro (Radio 10 cuadras)</option>
+                            <option value="parque">Zona Parque Independencia</option>
+                            <option value="abasto">Barrio Abasto</option>
+                        </select>
+                        <small class="helper-text">Solo realizo entregas a pie en estas zonas.</small>
+                    </div>
+
+                    <div class="payment-options">
+                        <p>¿Cómo querés pagar?</p>
+                        <label class="radio-label">
+                            <input type="radio" name="payment" value="efectivo" checked>
+                            <span class="radio-custom"></span>
+                            Efectivo al recibir
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="payment" value="transferencia">
+                            <span class="radio-custom"></span>
+                            Transferencia (Alias)
+                        </label>
+                    </div>
+
+                    <div id="alias-box" class="alias-box hidden">
+                        <p>Alias: <strong>HUEVOS.ROSARIO.MP</strong></p>
+                        <button type="button" id="btn-copy-alias" class="btn-small">Copiar Alias</button>
+                        <p class="warning-text">⚠️ Recordá enviar el comprobante al WhatsApp al finalizar.</p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="sticky-cart" class="sticky-cart hidden">
+        <div class="cart-summary">
+            <span id="cart-total-items">0 items</span>
+            <span id="cart-total-price" class="total-price">$0</span>
+        </div>
+        <button id="btn-go-checkout" class="btn-primary">Continuar</button>
+        <button id="btn-finish-order" class="btn-whatsapp hidden">
+            Pedir por WhatsApp 📲
+        </button>
+    </div>
+
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

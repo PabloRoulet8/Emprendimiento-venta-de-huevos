@@ -1,0 +1,21 @@
+// main.scss - archivo principal
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/grid';
+
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/cart';
+@import 'components/forms';
+@import 'components/modal';
+
+@import 'pages/home';
+
+/* Aquí puedes compilar este archivo a CSS con tu preprocesador SASS/SCSS */
