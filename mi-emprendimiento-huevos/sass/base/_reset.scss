@@ -10,6 +10,8 @@ body {
     font-family: $font-main;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    // Agregamos espacio extra al final para que el carrito no tape nada
+    padding-bottom: 80px;
 }
 
 img {
