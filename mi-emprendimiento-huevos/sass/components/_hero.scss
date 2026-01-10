@@ -1,0 +1,84 @@
+.hero-product {
+    padding: $spacing-lg 0;
+    background-color: $color-white; // Destaca sobre el fondo crema
+    border-bottom: 1px solid $color-border;
+}
+
+.hero-grid {
+    display: grid;
+    gap: $spacing-lg;
+    
+    // MÓVIL (Por defecto)
+    grid-template-columns: 1fr; 
+    text-align: center;
+
+    // DESKTOP (Más de 768px)
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr; // Mitad imagen, mitad texto
+        align-items: center;
+        text-align: left;
+    }
+}
+
+.hero-image {
+    position: relative;
+    border-radius: $radius-main;
+    overflow: hidden;
+    box-shadow: $shadow-card;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .badge-hero {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: $color-secondary;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+}
+
+.hero-info {
+    h2 {
+        font-size: 2rem;
+        margin-bottom: $spacing-sm;
+        color: $color-text;
+    }
+
+    .description {
+        font-size: 1.1rem;
+        color: $color-text-light;
+        margin-bottom: $spacing-md;
+    }
+
+    .price-box {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: $color-primary;
+        margin-bottom: $spacing-lg;
+    }
+}
+
+// Control gigante para el Hero
+.big-control {
+    justify-content: center;
+    @media (min-width: 768px) { justify-content: flex-start; }
+    
+    .btn-circle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .quantity-display {
+        font-size: 2rem;
+        margin: 0 20px;
+    }
+}

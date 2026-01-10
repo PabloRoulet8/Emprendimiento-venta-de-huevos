@@ -19,51 +19,35 @@
     </header>
 
     <main>
-        <section class="hero-section">
-            <div class="container">
-                <h2>Del campo a tu mesa, sin escalas.</h2>
-                <p>Reparto a pie en tu zona. Frescos, colorados y de confianza.</p>
-            </div>
-        </section>
-
-        <section class="products-section">
-            <div class="container grid-container">
+        <section class="hero-product">
+            <div class="container hero-grid">
                 
-                <article class="product-card">
-                    <div class="product-card__image">
-                        <img src="assets/img/docena.jpg" alt="Docena de Huevos Colorados">
-                    </div>
-                    <div class="product-card__info">
-                        <h3>Docena Colorada</h3>
-                        
-                        <p class="price" data-product-id="docena">--</p>
-                        
-                        <div class="quantity-control">
-                            <button class="btn-circle btn-decrease" data-id="docena">-</button>
-                            <span class="quantity-display" id="qty-docena">0</span>
-                            <button class="btn-circle btn-increase" data-id="docena">+</button>
-                        </div>
-                    </div>
-                </article>
+                <div class="hero-image">
+                    <img src="assets/img/maple.jpg" alt="Maple de Huevos">
+                    <span class="badge-hero">Oferta Especial</span>
+                </div>
 
-                <article class="product-card">
-                    <div class="product-card__image">
-                        <img src="assets/img/maple.jpg" alt="Maple de 30 Huevos">
-                        <span class="badge">Más vendido</span>
+                <div class="hero-info">
+                    <h2>Maple de 30 Huevos Colorados</h2>
+                    <p class="description">
+                        Huevos de campo frescos, seleccionados y de tamaño grande. 
+                        La mejor calidad para tus comidas, directo a tu puerta.
+                    </p>
+                    
+                    <div class="price-box">
+                        <span class="currency">$</span>
+                        <span id="product-price">--</span>
                     </div>
-                    <div class="product-card__info">
-                        <h3>Maple (30 Unid.)</h3>
-                        
-                        <p class="price" data-product-id="maple">--</p>
-                        
-                        <div class="quantity-control">
-                            <button class="btn-circle btn-decrease" data-id="maple">-</button>
+
+                    <div class="action-box">
+                        <p>¿Cuántos maples necesitas?</p>
+                        <div class="quantity-control big-control">
+                            <button class="btn-circle btn-decrease">-</button>
                             <span class="quantity-display" id="qty-maple">0</span>
-                            <button class="btn-circle btn-increase" data-id="maple">+</button>
+                            <button class="btn-circle btn-increase">+</button>
                         </div>
                     </div>
-                </article>
-
+                </div>
             </div>
         </section>
 
@@ -71,6 +55,7 @@
             <div class="container">
                 <h2>Finalizar Pedido</h2>
                 <form id="order-form">
+                    
                     <div class="form-group">
                         <label for="name">Tu Nombre</label>
                         <input type="text" id="name" placeholder="Ej: Juan Perez" required>
@@ -85,19 +70,24 @@
                         <label for="zone">Zona de Entrega</label>
                         <select id="zone" required>
                             <option value="" disabled selected>Seleccioná tu barrio...</option>
-                            <option value="centro">Zona Centro (Radio 10 cuadras)</option>
-                            <option value="parque">Zona Parque Independencia</option>
+                            <option value="centro">Zona Centro</option>
+                            <option value="parque">Zona Parque</option>
                             <option value="abasto">Barrio Abasto</option>
                         </select>
-                        <small class="helper-text">Solo realizo entregas a pie en estas zonas.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery-time">Horario de Entrega Preferido</label>
+                        <select id="delivery-time" required>
+                            </select>
                     </div>
 
                     <div class="payment-options">
-                        <p>¿Cómo querés pagar?</p>
+                        <p>Método de Pago</p>
                         <label class="radio-label">
                             <input type="radio" name="payment" value="efectivo" checked>
                             <span class="radio-custom"></span>
-                            Efectivo al recibir
+                            Efectivo
                         </label>
                         <label class="radio-label">
                             <input type="radio" name="payment" value="transferencia">
@@ -109,8 +99,8 @@
                     <div id="alias-box" class="alias-box hidden">
                         <p>Alias: <strong>HUEVOS.ROSARIO.MP</strong></p>
                         <button type="button" id="btn-copy-alias" class="btn-small">Copiar Alias</button>
-                        <p class="warning-text">⚠️ Recordá enviar el comprobante al WhatsApp al finalizar.</p>
                     </div>
+
                 </form>
             </div>
         </section>
@@ -127,7 +117,7 @@
         </button>
     </div>
 
-    <script src="assets/js/products.js"></script>
+    <script src="assets/js/config.js"></script>
     <script src="assets/js/storage.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/app.js"></script>
