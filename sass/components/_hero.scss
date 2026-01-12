@@ -1,20 +1,22 @@
 // sass/components/_hero.scss
 
 .hero-product {
-    padding: 10px 0 20px 0;
+    // Reducimos al mínimo el espacio exterior
+    padding: 10px 0; 
     background-color: transparent;
     border-bottom: none;
 }
 
 .hero-grid {
-    background-color: rgba(255, 255, 255, 0.78);
-    // En móvil reducimos el padding del contenedor principal para ganar espacio
-    padding: 15px; 
+    background-color: rgba(255, 255, 255, 0.90);
+    // Padding interno muy ajustado para ganar espacio
+    padding: 12px; 
     border-radius: $border-radius-lg;
     box-shadow: $shadow-card;
 
     display: grid;
-    gap: 20px;
+    // Gap (espacio entre elementos) mínimo
+    gap: 8px; 
     grid-template-columns: 1fr;
     text-align: center;
 
@@ -31,55 +33,41 @@
     position: relative;
     border-radius: $border-radius-md;
     overflow: hidden;
-    
-    // ✨ CAMBIO 1: EN MÓVIL SIN RELLENO
-    // Quitamos el padding y el fondo blanco en móvil para que la foto llegue al borde
     padding: 0;
-    background-color: transparent; 
+    background-color: transparent;
 
-    // ✨ CAMBIO 2: ALTURA MÁS GENEROSA
-    // Aumentamos a 300px o 'auto' para que se vea bien grande
-    max-height: 350px; 
+    // 📏 ALTURA CONTROLADA:
+    // Para que entre el texto abajo, la imagen no puede medir más de 200px en móviles estándar
+    max-height: 200px; 
     width: 100%;
     margin: 0 auto;
 
     @include mq(medium) {
-        // En PC sí le damos el estilo "tarjeta" con marco blanco
-        max-height: none;
+        max-height: none; // En PC la dejamos libre
         padding: 20px; 
-        background-color: transparent;
+        background-color: $color-white;
         box-shadow: $shadow-sm;
     }
 
     img {
         width: 100%;
         height: 100%;
-        
-        // ✨ CAMBIO 3: AJUSTE DE IMAGEN
-        // 'cover' fuerza a llenar todo el espacio (puede cortar bordes mínimos)
-        // Si prefieres que se vea el maple ENTERO sí o sí, cambia a 'contain'
-        object-fit: cover; 
-        
+        // Usamos 'contain' para que se vea el maple entero sin cortarse
+        object-fit: contain; 
         display: block;
-        transition: transform 0.3s ease;
-    }
-
-    &:hover img {
-        transform: scale(1.05);
     }
 
     .badge-hero {
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 8px;
+        left: 8px;
         z-index: 2;
-        
         background-color: $color-secondary;
         color: $color-white;
-        padding: 4px 10px;
+        padding: 3px 8px; // Badge más pequeño
         border-radius: $border-radius-sm;
         font-weight: bold;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 }
@@ -89,47 +77,54 @@
     flex-direction: column;
 
     h2 {
-        font-size: 1.6rem;
-        margin-bottom: 5px;
+        font-size: 1.4rem; // Título un poco más chico para ahorrar línea
+        margin-bottom: 2px; // Pegado al precio
         color: $color-primary;
-        line-height: 1.2;
+        line-height: 1.1;
         order: 1; 
     }
     
     .price-box {
-        font-size: 2.2rem;
+        font-size: 2rem; // Precio grande pero con menos margen
         font-weight: 900;
         color: $color-primary;
-        margin-bottom: 15px;
+        margin-bottom: 8px; // Poco espacio antes del contador
         order: 2;
     }
 
     .action-box {
-        margin-bottom: 20px;
+        margin-bottom: 8px; // Poco espacio antes de la descripción
         order: 3;
 
         p {
-            margin-bottom: 8px;
-            font-size: 0.9rem;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
             color: $color-text-light;
         }
     }
 
     .description {
-        font-size: 0.95rem;
+        font-size: 0.9rem; // Letra compacta
         color: $color-text;
-        line-height: 1.4;
-        border-top: 1px solid $color-border;
-        padding-top: 15px;
+        line-height: 1.3;
+        // Quitamos bordes y paddings extra
+        border: none; 
+        padding-top: 5px;
         order: 4; 
     }
 
-    // 🖥️ RESTAURAR ORDEN EN PC
+    // 🖥️ RESTAURAR TAMAÑOS EN PC
     @include mq(medium) {
         display: block; 
         
-        h2 { margin-bottom: 16px; font-size: 2rem; }
-        .description { border: none; padding: 0; margin-bottom: 24px; font-size: 1.1rem;}
+        h2 { margin-bottom: 16px; font-size: 2rem; line-height: 1.3; }
+        .description { 
+            border-top: 1px solid $color-border; 
+            padding-top: 15px; 
+            margin-bottom: 24px; 
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
         .price-box { margin-bottom: 24px; font-size: 2.5rem;}
     }
 }
@@ -145,32 +140,32 @@
     }
     
     .btn-circle {
-        width: 45px;
-        height: 45px;
-        font-size: 1.5rem;
+        // Botones un pelín más chicos para móviles
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
         border: 2px solid $color-primary;
         background: transparent;
         color: $color-primary;
         border-radius: 50%;
         cursor: pointer;
-        transition: all 0.2s;
         
         &:hover {
             background-color: $color-primary;
             color: $color-white;
         }
 
-        &:active {
-            transform: scale(0.9);
+        @include mq(medium) {
+             width: 45px; height: 45px; // En PC vuelven a ser grandes
         }
     }
     
     .quantity-display {
-        font-size: 2rem;
-        margin: 0 20px;
+        font-size: 1.8rem; // Número un poco más compacto
+        margin: 0 15px;
         font-weight: bold;
         color: $color-text;
-        min-width: 30px;
+        min-width: 25px;
         text-align: center;
     }
 }
