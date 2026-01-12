@@ -1,84 +1,172 @@
+// sass/components/_hero.scss
+
 .hero-product {
-    padding: $spacing-lg 0;
-    background-color: $color-white; // Destaca sobre el fondo crema
-    border-bottom: 1px solid $color-border;
+    padding: 10px 0 20px 0; // Menos relleno arriba en móvil
+    background-color: transparent;
+    border-bottom: none;
 }
 
 .hero-grid {
+    background-color: rgba(255, 255, 255, 0.78);
+    padding: 20px; // Padding más ajustado en móvil
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-card;
+
     display: grid;
-    gap: $spacing-lg;
-    
-    // MÓVIL (Por defecto)
-    grid-template-columns: 1fr; 
+    gap: 20px;
+    grid-template-columns: 1fr; // Una columna en móvil
     text-align: center;
 
-    // DESKTOP (Más de 768px)
-    @media (min-width: 768px) {
-        grid-template-columns: 1fr 1fr; // Mitad imagen, mitad texto
+    @include mq(medium) {
+        grid-template-columns: 1fr 1fr; // Dos columnas en PC
         align-items: center;
         text-align: left;
+        padding: 40px;
+        gap: 32px;
     }
 }
 
 .hero-image {
     position: relative;
-    border-radius: $radius-main;
+    border-radius: $border-radius-md;
     overflow: hidden;
-    box-shadow: $shadow-card;
+    box-shadow: $shadow-sm;
+    
+    // 📱 TRUCO MÓVIL: Limitamos la altura de la imagen
+    // para dejar espacio al contador en la primera pantalla
+    max-height: 220px; 
+    width: 100%;
+    margin: 0 auto;
+
+    @include mq(medium) {
+        max-height: none; // En PC la dejamos libre
+    }
 
     img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover; // Recorta la imagen para llenar el espacio sin deformar
         display: block;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.02);
     }
 
     .badge-hero {
         position: absolute;
-        top: 15px;
-        left: 15px;
+        top: 10px;
+        left: 10px;
         background-color: $color-secondary;
-        color: white;
-        padding: 6px 12px;
-        border-radius: 4px;
+        color: $color-white;
+        padding: 4px 10px;
+        border-radius: $border-radius-sm;
         font-weight: bold;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 }
 
 .hero-info {
+    // ✨ LA MAGIA DEL REORDENAMIENTO ✨
+    display: flex;
+    flex-direction: column;
+
     h2 {
-        font-size: 2rem;
-        margin-bottom: $spacing-sm;
-        color: $color-text;
+        font-size: 1.6rem; // Título un poco más compacto
+        margin-bottom: 5px;
+        color: $color-primary;
+        line-height: 1.2;
+        
+        // El Título va PRIMERO
+        order: 1; 
+    }
+    
+    .price-box {
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: $color-primary;
+        margin-bottom: 15px;
+        
+        // El Precio va SEGUNDO
+        order: 2;
+    }
+
+    // Contenedor del contador y la pregunta
+    .action-box {
+        margin-bottom: 20px;
+        
+        // La Acción va TERCERA (¡Visible ya!)
+        order: 3;
+
+        p {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: $color-text-light;
+        }
     }
 
     .description {
-        font-size: 1.1rem;
-        color: $color-text-light;
-        margin-bottom: $spacing-md;
+        font-size: 0.95rem;
+        color: $color-text;
+        line-height: 1.4;
+        border-top: 1px solid $color-border; // Una línea para separar
+        padding-top: 15px;
+        
+        // La Descripción va ÚLTIMA (Abajo de todo)
+        order: 4; 
     }
 
-    .price-box {
-        font-size: 2.5rem;
-        font-weight: 900;
-        color: $color-primary;
-        margin-bottom: $spacing-lg;
+    // 🖥️ RESTAURAR ORDEN EN PC
+    // En pantallas grandes, volvemos al orden normal del HTML
+    @include mq(medium) {
+        display: block; // Quitamos flexbox column
+        
+        h2 { margin-bottom: 16px; font-size: 2rem; }
+        .description { border: none; padding: 0; margin-bottom: 24px; font-size: 1.1rem;}
+        .price-box { margin-bottom: 24px; font-size: 2.5rem;}
     }
 }
 
-// Control gigante para el Hero
-.big-control {
-    justify-content: center;
-    @media (min-width: 768px) { justify-content: flex-start; }
+// Control de cantidad
+.quantity-control {
+    display: flex;
+    align-items: center;
+    // Centrado en móvil por defecto (gracias al text-align center del padre)
+    justify-content: center; 
+
+    @include mq(medium) {
+        justify-content: flex-start; // A la izquierda en PC
+    }
     
     .btn-circle {
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
+        border: 2px solid $color-primary;
+        background: transparent;
+        color: $color-primary;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s;
+        
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
     }
     
     .quantity-display {
         font-size: 2rem;
         margin: 0 20px;
+        font-weight: bold;
+        color: $color-text;
+        min-width: 30px; // Para que no baile el número
+        text-align: center;
     }
 }

@@ -1,2 +1,138 @@
-// _forms.scss
-input, select, textarea { width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; }
+// sass/components/_forms.scss
+
+#checkout-section {
+    // 1. TARJETA FLOTANTE (Fondo blanco sobre el pasto)
+    background-color: rgba(255, 255, 255, 0.78); // Blanco casi sólido
+    padding: 30px 24px;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-card;
+    
+    // 2. TAMAÑO Y POSICIÓN (Centrado)
+    width: 90%; // Ocupa casi todo el ancho en móviles
+    max-width: 450px; // Pero no se estira gigante en PC
+    margin: 40px auto; // Margen arriba/abajo para separarlo
+    position: relative;
+    z-index: 10;
+
+    // 3. TÍTULO (Ajustado a h2 según tu HTML)
+    h2 {
+        color: $color-primary;
+        text-align: center;
+        margin-bottom: 24px;
+        font-size: 1.8rem;
+        border-bottom: 2px solid $color-border;
+        padding-bottom: 12px;
+    }
+
+    // 4. GRUPOS DE FORMULARIO (¡La clave para que no se vea horizontal!)
+    .form-group {
+        display: flex;
+        flex-direction: column; // Esto obliga a Label arriba / Input abajo
+        margin-bottom: 16px;
+        width: 100%;
+        
+        label {
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: $color-text;
+            font-size: 0.95rem;
+            text-align: left; // Alineado a la izquierda
+        }
+
+        input, select {
+            padding: 10px 12px;
+            border: 1px solid $color-border;
+            border-radius: $border-radius-sm;
+            font-size: 1rem;
+            background-color: $color-white;
+            width: 100%; // Ocupa todo el ancho disponible
+            
+            &:focus {
+                border-color: $color-primary;
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(58, 90, 64, 0.1);
+            }
+        }
+    }
+
+    // 5. SECCIÓN DE PAGO
+    .payment-options {
+        margin-top: 24px;
+        background-color: rgba(0,0,0,0.02); // Fondo gris muy sutil
+        padding: 16px;
+        border-radius: $border-radius-sm;
+
+        p {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: $color-primary;
+            text-align: center;
+        }
+
+        // Estilo de las opciones (Radio Buttons)
+        .radio-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: $color-text;
+
+            input[type="radio"] {
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                accent-color: $color-primary; // Pinta el puntito de verde
+                cursor: pointer;
+            }
+        }
+    }
+
+    // 6. CAJA DE ALIAS (Oculta/Visible)
+    #alias-box {
+        margin-top: 15px;
+        padding: 15px;
+        background-color: rgba(188, 71, 73, 0.08); // Fondo rojizo suave (color secundario)
+        border: 1px dashed $color-secondary;
+        border-radius: $border-radius-sm;
+        text-align: center;
+
+        // 👇 ESTILO DEL NUEVO MENSAJE
+        .reminder-msg {
+            margin-top: 12px;           // Separación del botón
+            padding-top: 8px;           // Aire interno
+            border-top: 1px solid rgba(0,0,0,0.1); // Línea suave separadora
+            
+            font-size: 0.85rem;         // Letra más chica que el resto
+            font-style: italic;         // Cursiva para que parezca nota al pie
+            color: $color-text-light;   // Gris suave (no negro fuerte)
+            line-height: 1.4;
+        }
+
+        p {
+            margin: 0 0 8px 0;
+            color: $color-text;
+        }
+
+        strong {
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #btn-copy-alias {
+            background-color: $color-primary;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}

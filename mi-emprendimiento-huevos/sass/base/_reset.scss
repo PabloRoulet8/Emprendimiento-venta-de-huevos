@@ -5,13 +5,18 @@
 }
 
 body {
-    background-color: $color-bg;
+    background-color: $color-bg; 
     color: $color-text;
     font-family: $font-main;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    // Agregamos espacio extra al final para que el carrito no tape nada
-    padding-bottom: 80px;
+    padding-bottom: 120px;
+
+    // 👇 AQUÍ AGREGAMOS EL PASTO
+    background-image: url('../img/pasto.jpg');
+    background-repeat: repeat; // Para que cubra todo si la imagen es chica
+    background-size: 500px; // Ajusta este tamaño según qué tan grande se vea el pasto
+    background-attachment: fixed; // Efecto Parallax: el fondo se queda quieto
 }
 
 img {

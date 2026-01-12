@@ -30,8 +30,8 @@
                 <div class="hero-info">
                     <h2>Maple de 30 Huevos Colorados</h2>
                     <p class="description">
-                        Huevos de campo frescos, seleccionados y de tamaño grande. 
-                        La mejor calidad para tus comidas, directo a tu puerta.
+                        Huevos de gallinas felices, seleccionados y de tamaño grande. 
+                        La mejor calidad para tus comidas, directo a tu puerta!
                     </p>
                     
                     <div class="price-box">
@@ -65,20 +65,39 @@
                         <input type="text" id="address" placeholder="Ej: Av. Pellegrini 1500, 2A" required>
                     </div>
 
-                    <div class="form-group">
+                   <div class="form-group">
                         <label for="zone">Zona de Entrega</label>
                         <select id="zone" required>
                             <option value="" disabled selected>Seleccioná tu barrio...</option>
-                            <option value="centro">Zona Centro</option>
-                            <option value="parque">Zona Parque</option>
-                            <option value="abasto">Barrio Abasto</option>
+                            <option value="Centro">Centro</option>
+                            <option value="Barrio Martin">Barrio Martin</option>
+                            <option value="Republica de la Sexta">República de la Sexta</option>
+                            <option value="Abasto">Abasto</option>
+                            <option value="Pichincha">Pichincha</option>
+                            <option value="Parque Independencia">Parque Independencia</option>
+                            <option value="Ntra. Sr. de Lourdes">Ntra. Sra. de Lourdes</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="delivery-time">Horario de Entrega Preferido</label>
+                        <label for="delivery-day">Día de Entrega</label>
+                        <select id="delivery-day" required>
+                            <option value="" disabled selected>Elegí el día...</option>
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miércoles">Miércoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery-time">Franja Horaria</label>
                         <select id="delivery-time" required>
-                            </select>
+                            <option value="" disabled selected>Elegí horario...</option>
+                            <option value="11 a 14hs">Mañana (11:00 a 14:00 hs)</option>
+                            <option value="18 a 20hs">Tarde (18:00 a 20:00 hs)</option>
+                        </select>
                     </div>
 
                     <div class="payment-options">
@@ -95,13 +114,17 @@
                         </label>
                     </div>
 
-                    <div id="alias-box" class="alias-box hidden">
+                   <div id="alias-box" class="alias-box hidden">
                         <p>Alias: <strong>HUEVOS.ROSARIO.MP</strong></p>
                         <button type="button" id="btn-copy-alias" class="btn-small">Copiar Alias</button>
+                        
+                        <p class="reminder-msg">
+                            ⚠️ Recordá enviar el comprobante por WhatsApp para confirmar tu pedido.
+                        </p>
                     </div>
 
                 </form>
-            </div>
+            </div>  
         </section>
     </main>
 

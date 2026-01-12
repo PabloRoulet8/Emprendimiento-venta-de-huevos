@@ -1,29 +1,39 @@
-// COLORES
-$color-bg:       #FDFBF7; // Blanco cáscara
-$color-primary:  #FFB300; // Amarillo yema intenso
-$color-primary-dark: #e6a100; // Un poco más oscuro para hover
-$color-text:     #2D2D2D; // Gris oscuro
-$color-secondary:#E65100;
-$color-text-light:#666666; 
-$color-white:    #FFFFFF;
-$color-border:   #E0E0E0;
-$color-success:  #2ecc71; // Verde WhatsApp
-$color-danger:   #e74c3c; 
+// sass/abstracts/_variables.scss
 
-// TIPOGRAFÍA
-$font-main:      'Nunito', sans-serif;
+// 🎨 PALETA ORGÁNICA & PREMIUM
+$color-primary:       #3A5A40; // Verde Olivo
+$color-primary-light: #A3B18A; // Verde Salvia
+$color-secondary:     #BC4749; // Terracota
+$color-accent:        #DAD7CD; // Beige Piedra
+$color-primary-dark:  #2A402E; // Verde Oscuro
 
-// ESPACIADO
-$spacing-sm:     8px;
-$spacing-md:     16px;
-$spacing-lg:     32px;
-$spacing-xl:     64px;
+// 🩹 ALIAS DE COMPATIBILIDAD (Para que no rompa el código viejo)
+$color-success:       $color-primary; 
+$color-bg:            #FDFBF7; 
+$color-white:         #FFFFFF;
+$color-text:          #333333; 
+$color-text-light:    #666666; 
+$color-border:        #EAE0D5; 
 
-// SOMBRAS & BORDES
-$shadow-card:    0 4px 12px rgba(0,0,0,0.08);
-$shadow-float:   0 -4px 20px rgba(0,0,0,0.1);
-$radius-main:    12px;
-$radius-btn:     50px; // Botones redondos
+// 📐 ESPACIADOS
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 32px;
+$spacing-xl: 64px;
 
-// TAMAÑOS
-$max-width: 1200px;
+// 🔘 RADIOS & SOMBRAS
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 24px;
+
+// ALIAS PARA COMPONENTES VIEJOS 👇 
+$radius-btn:          $border-radius-lg; 
+$radius-main:         $border-radius-md;
+
+$shadow-sm: 0 2px 8px rgba(58, 90, 64, 0.08);
+$shadow-md: 0 8px 24px rgba(58, 90, 64, 0.12);
+$shadow-card: $shadow-md;
+
+// 🔡 TIPOGRAFÍA
+$font-primary: 'Nunito', sans-serif;
+$font-main:    $font-primary;
