@@ -292,7 +292,7 @@ footer {
 
 .hero-grid {
   background-color: rgba(255, 255, 255, 0.78);
-  padding: 20px;
+  padding: 15px;
   border-radius: 24px;
   box-shadow: 0 8px 24px rgba(58, 90, 64, 0.12);
   display: grid;
@@ -314,9 +314,9 @@ footer {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  padding: 15px;
+  padding: 0;
   background-color: transparent;
-  max-height: 250px;
+  max-height: 350px;
   width: 100%;
   margin: 0 auto;
 }
@@ -324,13 +324,15 @@ footer {
   .hero-image {
     max-height: none;
     padding: 20px;
+    background-color: transparent;
+    box-shadow: 0 2px 8px rgba(58, 90, 64, 0.08);
   }
 }
 .hero-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -338,45 +340,6 @@ footer {
   transform: scale(1.05);
 }
 .hero-image .badge-hero {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-  background-color: #BC4749;
-  color: #FFFFFF;
-  padding: 4px 10px;
-  font-weight: bold;
-  font-size: 0.8rem;
-}
-.hero-image .badge-hero .hero-image {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(58, 90, 64, 0.08);
-  padding: 15px;
-  background-color: #FFFFFF;
-  max-height: 250px;
-  width: 100%;
-  margin: 0 auto;
-}
-@media (min-width: 768px) {
-  .hero-image .badge-hero .hero-image {
-    max-height: none;
-    padding: 20px;
-  }
-}
-.hero-image .badge-hero .hero-image img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  display: block;
-  transition: transform 0.3s ease;
-}
-.hero-image .badge-hero .hero-image:hover img {
-  transform: scale(1.05);
-}
-.hero-image .badge-hero .hero-image .badge-hero {
   position: absolute;
   top: 10px;
   left: 10px;
