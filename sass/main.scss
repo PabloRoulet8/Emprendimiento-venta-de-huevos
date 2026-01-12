@@ -1,0 +1,16 @@
+// 1. Configuración y Bases
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'base/reset';
+@import 'base/typography';
+
+// 2. Estructura (Layout)
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+
+// 3. Componentes 
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/hero'; 
+@import 'components/cart';

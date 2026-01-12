@@ -1,0 +1,21 @@
+.main-header {
+    background-color: $color-white; // Fallback por si no carga la imagen
+    
+    // 👇 TEXTURA DE MADERA
+    background-image: url('../img/tabla.png');
+    background-size: cover; // Estira la tabla para cubrir todo
+    background-position: center;
+    
+    box-shadow: $shadow-md;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    h1 {
+        font-size: 1.5rem;
+        color: $color-white; // 💡 CAMBIO IMPORTANTE: Texto blanco para resaltar en madera
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5); // Sombrita para leer mejor
+        margin: 0;
+    }
+}
