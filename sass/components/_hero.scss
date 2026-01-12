@@ -32,32 +32,47 @@
     overflow: hidden;
     box-shadow: $shadow-sm;
     
-    // 📱 TRUCO MÓVIL: Limitamos la altura de la imagen
-    // para dejar espacio al contador en la primera pantalla
-    max-height: 220px; 
+    // ✨ CAMBIO 1: Agregamos un poco de "aire" (padding) interno
+    padding: 15px; 
+    background-color: $color-white; // Fondo blanco limpio detrás de la imagen
+
+    // 📱 Ajuste móvil
+    max-height: 250px; // Un poco más de altura permitida
     width: 100%;
     margin: 0 auto;
 
     @include mq(medium) {
-        max-height: none; // En PC la dejamos libre
+        max-height: none;
+        padding: 20px; // Más aire en PC
     }
 
     img {
         width: 100%;
         height: 100%;
-        object-fit: cover; // Recorta la imagen para llenar el espacio sin deformar
+        
+        // ✨ CAMBIO 2: ¡La clave! 
+        // 'contain' muestra la imagen entera sin cortarla, 
+        // ajustándose al espacio disponible.
+        object-fit: contain; 
+        
         display: block;
         transition: transform 0.3s ease;
+        
+        // Opcional: un pequeño filtro para que la sombra del maple se integre mejor
+        // filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); 
     }
 
     &:hover img {
-        transform: scale(1.02);
+        transform: scale(1.05); // Un zoom un poquito más notorio al pasar el mouse
     }
 
     .badge-hero {
         position: absolute;
+        // Ajustamos la posición del "Oferta Especial" por el nuevo padding
         top: 10px;
         left: 10px;
+        z-index: 2; // Asegura que quede por encima
+        
         background-color: $color-secondary;
         color: $color-white;
         padding: 4px 10px;
